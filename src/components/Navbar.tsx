@@ -10,10 +10,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link className="flex items-center gap-2" href="/">
-            <img
-              src="/logo.png"
-              alt="SIMS PPOB Logo"
-            />
+            <img src="/logo.png" alt="SIMS PPOB Logo" />
             <p className="text-xl font-semibold">SIMS PPOB</p>
           </Link>
           <div className="flex space-x-16 font-medium">
@@ -31,7 +28,13 @@ const Navbar = () => {
   );
 };
 
-const NavItem = ({ href, label, currentPath }) => {
+interface NavItemProps {
+  href: string;
+  label: string;
+  currentPath: string;
+}
+
+const NavItem: React.FC<NavItemProps> = ({ href, label, currentPath }) => {
   const isActive = currentPath === href;
   return (
     <Link href={href}>
